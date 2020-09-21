@@ -1,0 +1,22 @@
+{
+  "name": "foodiespilt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1998Isabel/FoodieSpilt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1998Isabel/FoodieSpilt/issues"
+  },
+  "homepage": "https://github.com/1998Isabel/FoodieSpilt#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
