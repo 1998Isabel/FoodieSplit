@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setLoginUser } from '../actions/shopActions';
 import { Button, Container, Row, Col } from 'react-bootstrap';
@@ -14,6 +15,9 @@ function Login(props) {
             </Row>
             <Row className="mt-2">
                 <h4>{user.name}</h4>
+            </Row>
+            <Row>
+                <Link to="/menu" className="text-white"><Button>開始點餐</Button></Link>
             </Row>
         </Container>
     )

@@ -36,7 +36,7 @@ export default {
                 "name": "飲料"
             }
         ],
-        "prodicts": [
+        "products": [
             {
                 "id": "p01",
                 "name": "香噴噴雞肉飯",
