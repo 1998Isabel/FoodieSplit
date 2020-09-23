@@ -1,44 +1,45 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Row, Button } from "react-bootstrap";
 import Mydb from "./mydb.json";
 
 const menu = Mydb.menu;
-export default class Menu extends Component {
-  state = { category: "" };
-  handleCategorySelect = category => {
-      console.log(category.target)
-    this.setState({ category });
-  };
+function Menu() {
+	const [category, setCategory] = useState("")
 
-  render() {
-    return (
-      <>
-        <Row
-          style={{
-            background: "black",
-            justifyContent: "center",
-            padding: "10px"
-          }}
-        >
-          <div>
-            {menu.categories.map(category => (
-              <Button
-                style={{ marginRight: "5px" }}
-                key={category.id}
-                variant="light"
-                onClick={(e)=>this.handleCategorySelect(e.target.value)}
-                value={category.name}
-              >
-                {category.name}
-              </Button>
-            ))}
-          </div>
-        </Row>
-        <span>{this.state.category}</span>
-        {menu.products.map(product => (
-          <Row></Row>
-        ))}
-      </>
-    );
-  }
+	const handleCategorySelect = category => {
+		console.log(category.target)
+		setCategory(category);
+	};
+
+	return (
+		<>
+			<Row
+				style={{
+					background: "black",
+					justifyContent: "center",
+					padding: "10px"
+				}}
+			>
+				<div>
+					{menu.categories.map(cat => (
+						<Button
+							style={{ marginRight: "5px" }}
+							key={cat.id}
+							variant="light"
+							onClick={(e) => handleCategorySelect(e.target.value)}
+							value={cat.name}
+						>
+							{cat.name}
+						</Button>
+					))}
+				</div>
+			</Row>
+			<span>{category}</span>
+			{menu.products.map(product => (
+				<Row></Row>
+			))}
+		</>
+	);
 }
+
+export default Menu;
