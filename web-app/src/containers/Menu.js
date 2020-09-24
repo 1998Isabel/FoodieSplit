@@ -1,61 +1,49 @@
 import React, { useState } from "react";
-import { Row, Button } from "react-bootstrap";
+import { Link as ScrollLink, Element } from 'react-scroll'
+import { Navbar, Nav, Button } from "react-bootstrap";
 import { connect } from 'react-redux';
-import { addProductToOrder } from '../actions/shopActions';
+import { addProductToOrder, removeProductfromOrder } from '../actions/shopActions';
 import Item from "../components/Item";
 
 function Menu(props) {
-	const { addProductToOrder } = props;
+	const { addProductToOrder, removeProductfromOrder } = props;
 	const { menu, users, orders } = props.shop;
-	const [category, setCategory] = useState("")
-
-	const handleCategorySelect = category => {
-		setCategory(category);
-	};
 
 	const categoryLink = menu.categories.map(cat => (
-		<Button
-			style={{ marginRight: "5px" }}
-			key={cat.id}
-			variant="light"
-			onClick={(e) => handleCategorySelect(e.target.value)}
-			value={cat.name}
-		>
-			{cat.name}
-		</Button>
+		<Nav.Link active>
+			<ScrollLink to={cat.id} smooth={true} duration={400} offset={-60}>
+				{cat.name}
+			</ScrollLink>
+		</Nav.Link>
 	))
 
 	const categoryItems = menu.categories.map(cat => {
 		const filterItems = menu.products.filter(e => e.category === cat.id)
 		return (
-			<>
-				<h5 className="m-2">{cat.name}</h5>
+			<Element name={cat.id}>
+				<h5 className="m-2 pl-2">{cat.name}</h5>
 				{filterItems.map(item => {
 					const order = orders.find(o => o.productid === item.id)
 					return (
 						<Item pid={item.id} name={item.name} price={item.price} users={users}
-							order={order?order.users:[]} image={item.image} addfunc={addProductToOrder}/>
+							order={order ? order.users : []} image={item.image}
+							addfunc={addProductToOrder} removefunc={removeProductfromOrder} />
 					)
 				})}
-			</>
+			</Element>
 		)
 	})
-	console.log(orders)
+
 	return (
 		<>
-			<Row
-				style={{
-					background: "black",
-					justifyContent: "center",
-					padding: "10px",
-					margin: "unset"
-				}}
-			>
-				<div>
-					{categoryLink}
-				</div>
-			</Row>
-			<span>{category}</span>
+			<Navbar variant="dark" bg="primary" sticky="top">
+				<Navbar.Toggle aria-controls="basic-navbar-nav" />
+				<Navbar.Collapse id="basic-navbar-nav">
+					<Nav className="mr-auto">
+						{categoryLink}
+					</Nav>
+				</Navbar.Collapse>
+			</Navbar>
 			{categoryItems}
 		</>
 	);
@@ -67,4 +55,4 @@ const mapStateToProps = state => ({
 	orders: state.shop.orders
 })
 
-export default connect(mapStateToProps, { addProductToOrder })(Menu);
+export default connect(mapStateToProps, { addProductToOrder, removeProductfromOrder })(Menu);

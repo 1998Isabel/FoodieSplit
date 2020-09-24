@@ -24,12 +24,17 @@ const userss = [
 ]
 
 function Item(props) {
-    const { pid, name, price, order, users, image, addfunc } = props;
+    const { pid, name, price, order, users, image, addfunc, removefunc } = props;
     const loginuser = "u01"
 
     const handleNew = (idx=-1) => {
-        console.log("Click!", pid, loginuser, idx)
+        console.log("Add!", pid, loginuser, idx)
         addfunc(pid, loginuser, idx)
+    }
+
+    const handleRemove = (idx) => {
+        console.log("Remove!", pid, loginuser, idx)
+        removefunc(pid, loginuser, idx)
     }
 
     const orderItems = order.map((ele, idx) => {
@@ -45,7 +50,7 @@ function Item(props) {
                     </Col>
                     <Col xs={2} style={{ padding: "unset" }}>
                         {ele.includes(loginuser) ? (
-                            <Button variant="secondary" size="sm">移除</Button>) : (
+                            <Button variant="secondary" size="sm" onClick={()=>handleRemove(idx)}>移除</Button>) : (
                             <Button size="sm" onClick={()=>handleNew(idx)}>加入</Button>)}
                     </Col>
                 </Row>
