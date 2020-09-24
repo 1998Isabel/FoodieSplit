@@ -7,7 +7,7 @@ import {
 
 const initialState = {
     ...db,
-    user: db.users.find(e => e.id === "u01")
+    loginuser: db.users.find(e => e.id === "u01")
 }
 
 export default function (state = initialState, action) {
@@ -18,7 +18,7 @@ export default function (state = initialState, action) {
             let loginuser = state.db.users.find(e => e.id === userid)
             return {
                 ...state,
-                user: loginuser
+                loginuser: loginuser
             }
         }
         case ADD_TO_ORDER: {

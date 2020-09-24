@@ -7,7 +7,7 @@ import Item from "../components/Item";
 
 function Menu(props) {
 	const { addProductToOrder, removeProductfromOrder } = props;
-	const { menu, users, orders } = props.shop;
+	const { menu, users, orders, loginuser } = props.shop;
 
 	const categoryLink = menu.categories.map(cat => (
 		<Nav.Link active>
@@ -26,6 +26,7 @@ function Menu(props) {
 					const order = orders.find(o => o.productid === item.id)
 					return (
 						<Item pid={item.id} name={item.name} price={item.price} users={users}
+							loginuser={loginuser.id}
 							order={order ? order.users : []} image={item.image}
 							addfunc={addProductToOrder} removefunc={removeProductfromOrder} />
 					)
@@ -51,8 +52,6 @@ function Menu(props) {
 
 const mapStateToProps = state => ({
 	shop: state.shop,
-	users: state.shop.users,
-	orders: state.shop.orders
 })
 
 export default connect(mapStateToProps, { addProductToOrder, removeProductfromOrder })(Menu);

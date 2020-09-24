@@ -24,7 +24,7 @@ function Login(props) {
 }
 
 const mapStateToProps = state => ({
-    user: state.shop.user
+    user: state.shop.loginuser
 });
 
 export default connect(mapStateToProps, { setLoginUser })(Login);
