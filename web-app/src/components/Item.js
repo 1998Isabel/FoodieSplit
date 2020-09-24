@@ -2,34 +2,18 @@ import React from 'react';
 import { Accordion, Card, Row, Col, Image, ListGroup, Button } from 'react-bootstrap';
 import Avatar from './Avatar';
 
-const userss = [
-    {
-        "id": "u01",
-        "name": "Isabel",
-        "person_price": null,
-        "profile": "png-avatar/005-woman.png"
-    },
-    {
-        "id": "u02",
-        "name": "Rose",
-        "person_price": null,
-        "profile": "png-avatar/039-boy.png"
-    },
-    {
-        "id": "u03",
-        "name": "Irene",
-        "person_price": null,
-        "profile": "png-avatar/024-woman.png"
-    }
-]
 
 function Item(props) {
-    const { pid, name, price, order, users, image, addfunc } = props;
-    const loginuser = "u01"
-
+    const { pid, name, price, order, users, loginuser, image, addfunc, removefunc } = props;
+    
     const handleNew = (idx=-1) => {
-        console.log("Click!", pid, loginuser, idx)
+        console.log("Add!", pid, loginuser, idx)
         addfunc(pid, loginuser, idx)
+    }
+
+    const handleRemove = (idx) => {
+        console.log("Remove!", pid, loginuser, idx)
+        removefunc(pid, loginuser, idx)
     }
 
     const orderItems = order.map((ele, idx) => {
@@ -45,7 +29,7 @@ function Item(props) {
                     </Col>
                     <Col xs={2} style={{ padding: "unset" }}>
                         {ele.includes(loginuser) ? (
-                            <Button variant="secondary" size="sm">移除</Button>) : (
+                            <Button variant="secondary" size="sm" onClick={()=>handleRemove(idx)}>移除</Button>) : (
                             <Button size="sm" onClick={()=>handleNew(idx)}>加入</Button>)}
                     </Col>
                 </Row>

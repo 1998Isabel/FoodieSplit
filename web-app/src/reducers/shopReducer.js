@@ -7,21 +7,22 @@ import {
 
 const initialState = {
     ...db,
-    user: db.users.find(e => e.id === "u01")
+    loginuser: db.users.find(e => e.id === "u01")
 }
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case SET_USER:
+        case SET_USER: {
             console.log("SET USER", action.payload)
             let userid = action.payload
             let loginuser = state.db.users.find(e => e.id === userid)
             return {
                 ...state,
-                user: loginuser
+                loginuser: loginuser
             }
-        case ADD_TO_ORDER:
-            let { product, user, idx } = action.payload
+        }
+        case ADD_TO_ORDER: {
+            let { product, user, idx } = action.payload;
             // console.log("ADD_TO_ORDER", product, user, idx, state.menu.products.find(e => e.id === product))
             let now_order = [...state.orders]
             let order_idx = now_order.findIndex(e => e.productid == product)
@@ -34,13 +35,12 @@ export default function (state = initialState, action) {
                 })
             }
             else if (idx === -1) {
-                let update_order = {...now_order[order_idx]}
+                let update_order = { ...now_order[order_idx] }
                 update_order.users.push([user])
                 now_order[order_idx] = update_order
             }
             else {
-                console.log(idx, order_idx)
-                let update_order = {...now_order[order_idx]}
+                let update_order = { ...now_order[order_idx] }
                 update_order.users[idx].push(user)
                 now_order[order_idx] = update_order
             }
@@ -48,10 +48,21 @@ export default function (state = initialState, action) {
                 ...state,
                 orders: now_order
             }
-        case REMOVE_FROM_ORDER:
+        }
+        case REMOVE_FROM_ORDER: {
+            let { product, user, idx } = action.payload;
+            // console.log("ADD_TO_ORDER", product, user, idx, state.menu.products.find(e => e.id === product))
+            let now_order = [...state.orders]
+            let order_idx = now_order.findIndex(e => e.productid == product)
+            let update_order = { ...now_order[order_idx] }
+            update_order.users[idx] = update_order.users[idx].filter(u => u !== user)
+            update_order.users = update_order.users.filter(u => u.length !== 0)
+            now_order[order_idx] = update_order
             return {
-                ...state
+                ...state,
+                orders: now_order
             }
+        }
         default:
             return state;
     }
