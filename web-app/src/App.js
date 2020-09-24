@@ -7,6 +7,7 @@ import './App.css';
 import Header from './containers/Header';
 import Login from './containers/Login';
 import Menu from './containers/Menu';
+import CheckoutPersonal from './containers/CheckoutPersonal';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/menu" component={Menu} />
+          <Route path="/checkout/personal" component={CheckoutPersonal} />
         </Switch>
       </HashRouter>
     </Provider>
