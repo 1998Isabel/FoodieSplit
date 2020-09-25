@@ -9,7 +9,7 @@ import Login from './containers/Login';
 import Menu from './containers/Menu';
 import CheckoutPersonal from './containers/CheckoutPersonal';
 
-function App() {
+function Router() {
   return (
     <Provider store={store}>
       <HashRouter>
@@ -24,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export default Router;
