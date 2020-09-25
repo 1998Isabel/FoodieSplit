@@ -7,7 +7,8 @@ import {
   Card,
   ListGroup,
   Col,
-  Image
+  Image,
+  Navbar
 } from "react-bootstrap";
 
 const orders = Mydb.orders;
@@ -58,48 +59,65 @@ export default class CheckoutPersonal extends Component {
   render() {
     const { totalPrice, userOrderProduct, userOrderProductImg } = this.state;
     return (
-      <Container>
+      <Container style={{ margin: "0 0 80px 0", padding: "initial" }}>
         <Card style={{ border: "none" }}>
-          <Card.Body>
-            <Card.Title>個人點餐確認</Card.Title>
-
-            <ListGroup>
-              {(userOrderProduct || []).map((product, idx) => (
-                <ListGroup.Item>
-                  <Row>
-                    <Col xs={2}>
-                      <Image src={userOrderProductImg[idx]} width={50}></Image>
-                    </Col>
-                    <Col>
-                      <h5 style={{ margin: "unset" }}>
-                        {product.product_name}
-                      </h5>
-                      <div className="pt-1">
-                        $ {product.product_price} / {product.shareUsers} =
-                        ${product.product_eachPrice}
-                      </div>
-                    </Col>
-                    <Col xs={3} className="d-flex align-items-center">
-                      <h5>1 份</h5>
-                    </Col>
-                  </Row>
-                </ListGroup.Item>
-              ))}
-              <ListGroup.Item>
-                <Col
-                  style={{ width: "fit-content", float: "right" }}
-                  className="d-flex align-items-center"
-                >
-                  <h5>總共: ${totalPrice}</h5>
-                </Col>
+          <Navbar  bg="primary" sticky="top">
+            <Card.Title className="navbar-checkout-personal">個人點餐確認</Card.Title>
+          </Navbar>
+          <ListGroup style={{ borderRadius: "unset" }}>
+            {(userOrderProduct || []).map((product, idx) => (
+              <ListGroup.Item
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.05)"
+                }}
+              >
+                <Row>
+                  <Col xs={2}>
+                    <Image src={userOrderProductImg[idx]} width={50}></Image>
+                  </Col>
+                  <Col>
+                    <h5 style={{ margin: "unset" }}>{product.product_name}</h5>
+                    <div className="pt-1">
+                      $ {product.product_price} / {product.shareUsers} = $
+                      {product.product_eachPrice}
+                    </div>
+                  </Col>
+                  <Col xs={3} className="d-flex align-items-center">
+                    <h5>1 份</h5>
+                  </Col>
+                </Row>
               </ListGroup.Item>
-            </ListGroup>
-            {/* <Card.Text>
-              
-            </Card.Text> */}
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
+            ))}
+            <ListGroup.Item>
+              <Col
+                style={{ width: "fit-content", float: "right" }}
+                className="d-flex align-items-center"
+              >
+                <h5>總共: ${totalPrice}</h5>
+              </Col>
+            </ListGroup.Item>
+          </ListGroup>
         </Card>
+        <Row style={{ display: "flex", justifyContent: "center" }}>
+          <Col xs={2}>
+            <Button
+              style={{ position: "fixed", bottom: "30px" }}
+              variant="primary"
+              onClick={() => window.history.back()}
+            >
+              返回
+            </Button>
+          </Col>
+          <Col xs={2}>
+            <Button
+              style={{ position: "fixed", bottom: "30px" }}
+              variant="secondary"
+              onClick={() => (window.location.href = "/")}
+            >
+              確認
+            </Button>
+          </Col>
+        </Row>
       </Container>
     );
   }

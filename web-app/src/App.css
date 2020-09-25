@@ -44,3 +44,12 @@
   align-items: center;
   justify-content: center;
 }
+
+.navbar-checkout-personal{
+  margin: 0 0 0 5px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 17px;
+}
