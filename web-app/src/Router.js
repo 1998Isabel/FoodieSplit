@@ -8,6 +8,7 @@ import Header from './containers/Header';
 import Login from './containers/Login';
 import Menu from './containers/Menu';
 import CheckoutPersonal from './containers/CheckoutPersonal';
+import PaymentPersonal from './containers/PaymentPersonal';
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
           <Route exact path="/" component={Login} />
           <Route path="/menu" component={Menu} />
           <Route path="/checkout/personal" component={CheckoutPersonal} />
+          <Route path="/payment/personal" component={PaymentPersonal} />
         </Switch>
       </HashRouter>
     </Provider>
