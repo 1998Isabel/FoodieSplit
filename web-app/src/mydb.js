@@ -116,7 +116,6 @@ export default {
             "productid": "p01",
             "product_price": 50,
             "amount": 2,
-            "product_name": "香噴噴雞肉飯",
             "users": [
                 ["u01","u02"], ["u03"]
             ]
@@ -125,15 +124,7 @@ export default {
             "productid": "p02",
             "product_price": 50,
             "amount": 2,
-            "product_name": "泰式椒麻雞飯",
             "users": [["u01"], ["u03", "u02", "u01"]]
-          },
-          {
-            "productid": "p02",
-            "product_price": 50,
-            "amount": 1,
-            "product_name": "打拋豬飯",
-            "users": [["u01"]]
-          }
+        }
     ]
 }

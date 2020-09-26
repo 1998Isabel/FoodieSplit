@@ -2,7 +2,8 @@ import db from '../mydb';
 import {
     SET_USER,
     ADD_TO_ORDER,
-    REMOVE_FROM_ORDER
+    REMOVE_FROM_ORDER,
+    SET_PERSONAL_PRICE
 } from '../actions/types';
 
 const initialState = {
@@ -61,6 +62,20 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 orders: now_order
+            }
+        }
+        case SET_PERSONAL_PRICE: {
+            let { user, price } = action.payload;
+            let the_user_idx = state.users.findIndex(e => e.id === user)
+            console.log("reducer", the_user_idx, user, state.users, price)
+            let update_user = {...state.loginuser}
+            update_user.person_price = price
+            let update_users = [...state.users]
+            update_users[the_user_idx] = update_user
+            return {
+                ...state,
+                loginuser: update_user,
+                users: update_users
             }
         }
         default:

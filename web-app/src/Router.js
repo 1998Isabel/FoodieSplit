@@ -18,8 +18,8 @@ function Router() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/menu" component={Menu} />
-          <Route path="/checkout/personal" component={CheckoutPersonal} />
-          <Route path="/payment/personal" component={PaymentPersonal} />
+          <Route path="/checkout" component={CheckoutPersonal} />
+          <Route path="/payment" component={PaymentPersonal} />
         </Switch>
       </HashRouter>
     </Provider>

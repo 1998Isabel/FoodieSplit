@@ -1,7 +1,8 @@
 import {
     SET_USER,
     ADD_TO_ORDER,
-    REMOVE_FROM_ORDER
+    REMOVE_FROM_ORDER,
+    SET_PERSONAL_PRICE
 } from './types';
 
 export const setLoginUser = (id) => dispatch => {
@@ -29,6 +30,17 @@ export const removeProductfromOrder = (productid, userid, listidx) => dispatch =
             product: productid,
             user: userid,
             idx: listidx
+        }
+    })
+}
+
+export const setPersonPrice = (userid, price) => dispatch => {
+    console.log("setPersonPrice", userid, price)
+    dispatch({
+        type: SET_PERSONAL_PRICE,
+        payload: {
+            user: userid,
+            price: price
         }
     })
 }
