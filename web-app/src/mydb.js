@@ -3,19 +3,19 @@ export default {
         {
             "id": "u01",
             "name": "Isabel",
-            "person_price": 100,
+            "person_price": 135,
             "profile": "png-avatar/005-woman.png"
         },
         {
             "id": "u02",
             "name": "Rose",
-            "person_price": 200,
+            "person_price": 70,
             "profile": "png-avatar/039-boy.png"
         },
         {
             "id": "u03",
             "name": "Irene",
-            "person_price": 300,
+            "person_price": 25,
             "profile": "png-avatar/024-woman.png"
         }
     ],
@@ -115,22 +115,22 @@ export default {
         {
             "productid": "p01",
             "product_price": 50,
-            "amount": 2,
+            "amount": 1,
             "users": [
-                ["u03","u02"], ["u01"]
+                ["u03","u02"]
             ]
         },
         {
             "productid": "p02",
             "product_price": 50,
             "amount": 1,
-            "users": [["u02", "u01"]]
-        },
-        {
-            "productid": "p09",
-            "product_price": 50,
-            "amount": 1,
-            "users": [["u01"]]
+            "users": [["u02"]]
         }
+        // {
+        //     "productid": "p09",
+        //     "product_price": 50,
+        //     "amount": 1,
+        //     "users": [["u01"]]
+        // }
     ]
 }

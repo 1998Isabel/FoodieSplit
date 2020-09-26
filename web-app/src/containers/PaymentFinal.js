@@ -20,15 +20,15 @@ function PaymentFinal(props) {
         tempOrderProduct.push(
           ...Array.from(order.users, user => {
             if (user.includes(ele)) {
-              const product_eachPrice = Math.ceil(
-                order.product_price / user.length
+              const the_product = products.find(e => e.id === order.productid)
+              let product_eachPrice = Math.ceil(
+                the_product.price / user.length
               );
               tempTotal += product_eachPrice;
-              const the_product = products.find(e => e.id === order.productid);
               return {
                 product_price: the_product.price,
                 product_name: the_product.name,
-                product_eachPrice,
+                product_eachPrice: product_eachPrice,
                 shareUsers: user.length,
                 product_image: the_product.image
               };
