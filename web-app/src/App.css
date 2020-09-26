@@ -53,3 +53,11 @@
     color: white;
     font-size: 17px;
 }
+
+.navbar-checkout-all{
+  margin: 0 0 0 5px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+}

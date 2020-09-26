@@ -11,6 +11,7 @@ import CheckoutPersonal from './containers/CheckoutPersonal';
 import PaymentPersonal from './containers/PaymentPersonal';
 import PausePage from './containers/PausePage';
 import PaymentFinal from './containers/PaymentFinal';
+import SuccessPage from './containers/SuccessPage';
 
 function Router() {
   return (
@@ -24,6 +25,7 @@ function Router() {
           <Route path="/pause" component={PausePage} />
           <Route exact path="/payment" component={PaymentPersonal} />
           <Route path="/payment/final" component={PaymentFinal} />
+          <Route path="/payment/success" component={SuccessPage} />
         </Switch>
       </HashRouter>
     </Provider>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Mydb from "../mydb.js";
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setPersonPrice } from '../actions/shopActions';
@@ -14,13 +13,9 @@ import {
 	Navbar
 } from "react-bootstrap";
 
-// const orders = Mydb.orders;
-// const products = Mydb.menu.products;
-
 function CheckoutPersonal(props) {
 	const { orders, products, loginuser, setPersonPrice } = props;
 	const [userOrderProduct, setUserOrderProduct] = useState([]);
-	const [userOrderProductImg, setUserOrderProductImg] = useState([]);
 	const [totalPrice, setTotalPrice] = useState(0);
 
 	useEffect(() => {
@@ -29,7 +24,6 @@ function CheckoutPersonal(props) {
 	}, [orders])
 
 	const handleCurrentUserOrder = () => {
-		// let { totalPrice, userOrderProduct } = this.state;
 		let tempOrderProduct = []
 		let tempTotal = 0
 		orders.forEach(order => {
@@ -56,8 +50,6 @@ function CheckoutPersonal(props) {
 			product => product !== undefined
 		);
 
-		// this.setState({ userOrderProduct, totalPrice });
-		console.log("TEMP", tempOrderProduct)
 		setUserOrderProduct(tempOrderProduct)
 		setTotalPrice(tempTotal)
 	};
@@ -69,7 +61,7 @@ function CheckoutPersonal(props) {
 
 	return (
 		<Container style={{ margin: "0 0 80px 0", padding: "initial" }}>
-			<Card style={{ border: "none" }}>
+			<div>
 				<Navbar bg="primary" sticky="top">
 					<Card.Title className="navbar-checkout-personal">個人點餐確認</Card.Title>
 				</Navbar>
@@ -106,7 +98,7 @@ function CheckoutPersonal(props) {
 						</Col>
 					</ListGroup.Item>
 				</ListGroup>
-			</Card>
+			</div>
 			<Row style={{ display: "flex", justifyContent: "center" }}>
 				<Col xs={2}>
 					<Link to="/menu" className="text-white">

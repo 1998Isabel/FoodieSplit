@@ -10,7 +10,10 @@ import {
 const initialState = {
     ...db,
     loginuser: db.users.find(e => e.id === "u01"),
-    payment: {}
+    payment: {
+        method: "myself",
+        paylist: ["u01"]
+    }
 }
 
 export default function (state = initialState, action) {
@@ -82,9 +85,6 @@ export default function (state = initialState, action) {
         }
         case SET_PAY_LIST: {
             let { method, paylist } = action.payload;
-            if (method === "myself") {
-                paylist = []
-            }
             return {
                 ...state,
                 payment: {

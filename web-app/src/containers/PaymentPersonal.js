@@ -26,8 +26,18 @@ function PaymentPersonal(props) {
 	}
 
 	const handleNext = () => {
-		console.log("NEXT", paymentState, payList)
-		setPaymentList(paymentState, payList)
+		let payUserList = []
+		if (paymentState === "other") {
+			payList.forEach((ele,idx) => {
+				if (ele) {
+					payUserList.push(users[idx].id)
+				}
+			})
+		}
+		else {
+			payUserList.push(loginuser.id)
+		}
+		setPaymentList(paymentState, payUserList)
 	}
 
 	const usersPayment = users.map((ele, idx) => {
