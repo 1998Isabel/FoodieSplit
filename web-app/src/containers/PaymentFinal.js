@@ -24,6 +24,7 @@ function PaymentFinal(props) {
               let product_eachPrice = Math.ceil(
                 the_product.price / user.length
               );
+              // console.log(the_product, )
               tempTotal += product_eachPrice;
               return {
                 product_price: the_product.price,

@@ -115,22 +115,23 @@ export default {
         {
             "productid": "p01",
             "product_price": 50,
-            "amount": 1,
+            "amount": 2,
             "users": [
-                ["u03","u02"]
+                ["u03","u02"],
+                ["u01"]
             ]
         },
         {
             "productid": "p02",
             "product_price": 50,
             "amount": 1,
-            "users": [["u02"]]
+            "users": [["u02", "u01"]]
+        },
+        {
+            "productid": "p09",
+            "product_price": 50,
+            "amount": 1,
+            "users": [["u01"]]
         }
-        // {
-        //     "productid": "p09",
-        //     "product_price": 50,
-        //     "amount": 1,
-        //     "users": [["u01"]]
-        // }
     ]
 }
