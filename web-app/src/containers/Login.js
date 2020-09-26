@@ -11,7 +11,7 @@ function Login(props) {
   return (
     <Container className="container-home">
       <Row>
-        <Avatar src={user.profile} style={{ width: "30vw" }} />
+        <Avatar src={user.profile} width={130} height={130}/>
       </Row>
       <Row className="mt-2">
         <h4>{user.name}</h4>

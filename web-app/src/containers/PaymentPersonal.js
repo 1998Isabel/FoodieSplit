@@ -54,7 +54,7 @@ function PaymentPersonal(props) {
       <ListGroup.Item>
         <Row>
           <Col xs={3}>
-            <Avatar width={25} src={ele.profile}></Avatar>
+            <Avatar width={25} height={25} src={ele.profile}></Avatar>
           </Col>
           <Col>
             {ele.name} ${ele.person_price}
@@ -74,7 +74,7 @@ function PaymentPersonal(props) {
     <div style={{ marginBottom: "50px" }}>
       <Container style={{ marginBottom: "80px" }} className="container-home">
         <Row className="mb-3">
-          <Avatar src={loginuser.profile} style={{ width: "30vw" }} />
+          <Avatar src={loginuser.profile} width={130} height={130} />
         </Row>
         <h5>選擇要結帳的對象</h5>
         <Accordion>
