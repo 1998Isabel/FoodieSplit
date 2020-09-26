@@ -12,6 +12,7 @@ import PaymentPersonal from './containers/PaymentPersonal';
 import PausePage from './containers/PausePage';
 import PaymentFinal from './containers/PaymentFinal';
 import SuccessPage from './containers/SuccessPage';
+import PaymentDetail from './containers/PaymentDetail';
 
 function Router() {
   return (
@@ -26,6 +27,7 @@ function Router() {
           <Route exact path="/payment" component={PaymentPersonal} />
           <Route path="/payment/final" component={PaymentFinal} />
           <Route path="/payment/success" component={SuccessPage} />
+          <Route path="/payment/detail" component={PaymentDetail} />
         </Switch>
       </HashRouter>
     </Provider>

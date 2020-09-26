@@ -12,7 +12,9 @@ const initialState = {
     loginuser: db.users.find(e => e.id === "u01"),
     payment: {
         method: "myself",
-        paylist: ["u01"]
+        paylist: ["u01"],
+        paidlist: ["u01", "u02"],
+        notpaidlist: ["u03"]
     }
 }
 
@@ -88,6 +90,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 payment: {
+                    ...state.payment,
                     method: method,
                     paylist: paylist
                 }
