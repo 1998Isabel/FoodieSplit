@@ -120,7 +120,7 @@ function CheckoutPersonal(props) {
 					</Link>
 				</Col>
 				<Col xs={2}>
-					<Link to="/payment" className="text-white">
+					<Link to="/pause" className="text-white">
 						<Button
 							style={{ position: "fixed", bottom: "30px" }}
 							variant="secondary"

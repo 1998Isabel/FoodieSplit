@@ -3,12 +3,14 @@ import {
     SET_USER,
     ADD_TO_ORDER,
     REMOVE_FROM_ORDER,
-    SET_PERSONAL_PRICE
+    SET_PERSONAL_PRICE,
+    SET_PAY_LIST
 } from '../actions/types';
 
 const initialState = {
     ...db,
-    loginuser: db.users.find(e => e.id === "u01")
+    loginuser: db.users.find(e => e.id === "u01"),
+    payment: {}
 }
 
 export default function (state = initialState, action) {
@@ -76,6 +78,19 @@ export default function (state = initialState, action) {
                 ...state,
                 loginuser: update_user,
                 users: update_users
+            }
+        }
+        case SET_PAY_LIST: {
+            let { method, paylist } = action.payload;
+            if (method === "myself") {
+                paylist = []
+            }
+            return {
+                ...state,
+                payment: {
+                    method: method,
+                    paylist: paylist
+                }
             }
         }
         default:

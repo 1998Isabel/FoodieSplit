@@ -3,19 +3,19 @@ export default {
         {
             "id": "u01",
             "name": "Isabel",
-            "person_price": null,
+            "person_price": 100,
             "profile": "png-avatar/005-woman.png"
         },
         {
             "id": "u02",
             "name": "Rose",
-            "person_price": null,
+            "person_price": 200,
             "profile": "png-avatar/039-boy.png"
         },
         {
             "id": "u03",
             "name": "Irene",
-            "person_price": null,
+            "person_price": 300,
             "profile": "png-avatar/024-woman.png"
         }
     ],

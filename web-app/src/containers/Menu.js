@@ -46,6 +46,15 @@ function Menu(props) {
 				</Navbar.Collapse>
 			</Navbar>
 			{categoryItems}
+			{/* <Button style={{ position: "absolute", top: "90%", left: "30%", zIndex: "999" }}>確認個人餐點</Button> */}
+			<Navbar variant="dark" bg="secondary" fixed="bottom">
+				<Nav className="justify-content-center">
+					<Nav.Link style={{width: "100%"}} href="#checkout">
+						<p className="text-white" style={{margin: "unset"}}>點好餐囉！(置不了中啦)</p>
+						{/* <Button className="text-white">確認個人餐點</Button> */}
+					</Nav.Link>
+				</Nav>
+			</Navbar>
 		</>
 	);
 }
